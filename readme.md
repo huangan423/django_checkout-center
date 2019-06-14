@@ -4,11 +4,12 @@
 
 ```
 效果展示图1
-![images](https://github.com/herrywen-nanj/django_checkout-center/blob/master/pictures/A.png?raw=true)
+![image1](https://github.com/herrywen-nanj/django_checkout-center/blob/master/pictures/A.png)
+
 ```
 
 ```
 效果展示图2,点击对应的ip，出现单项检查表格
-![image](https://github.com/herrywen-nanj/django_checkout-center/blob/master/pictures/B.png?raw=true)
+![image2](https://github.com/herrywen-nanj/django_checkout-center/blob/master/pictures/B.png)
 
 ```
