@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>发布检查汇总中心</title>
+    <link rel="stylesheet" type="text/css" href="/static/Font-Awesome-3.2.1/css/font-awesome.min.css">
+    <script type="text/javascript" src="/static/jquery-2.1.4.min.js"></script>
+    <style type="text/css" media="screen">
+    ul {
+    	list-style: none;
+    }
+    .s-side {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 230px;
+        bottom: 0;
+        overflow: auto;
+        font-size: 16px;
+        background-color: #7d7472;
+        color: #fff;
+    }
+    .s-side > ul {
+    	margin-top: 0;
+    	padding-left: 0;
+    }
+    .s-side > ul > li {
+        line-height: 40px;
+        width: 100%;
+        border: 1px solid;
+    }
+    .s-side > ul > li > a > i,
+    .s-side > ul > li > div > i {
+        display: inline-block;
+        width: 40px;
+        text-align: center;
+    }
+    i.icon-chevron-up {
+        float: right;
+    }
+    .iconRotate {
+        transform: rotate(180deg);
+        transition: transform .5s;
+    }
+    .s-firstNav > i.icon-chevron-up {
+        margin-right: 5px;
+        margin-top: 10px;
+    }
+    .s-firstDrop {
+        background-color: #07a3c3;
+
+    }
+    .s-firstDrop > li {
+        line-height: 33px;
+            border: 1px solid;
+    }
+    .s-firstDrop,
+    .s-secondDrop {
+        display: none;
+    }
+    .s-secondNav > i.icon-chevron-up {
+        margin-right: 18px;
+        margin-top: 12px;
+    }
+    .s-secondDrop {
+        padding-left: 20px;
+        background-color: #decece;
+    }
+    </style>
+</head>
+<body ng-app="ams" ng-controller="amsCtrl">
+    <div class="s-side">
+        <ul>
+            <li class="s-firstItem">
+                <a href="">
+                    <i class="icon-home"></i>
+                    <span>发布检查纵览</span>
+                </a>
+            </li>
+            <li>
+                <div class="d-firstNav s-firstNav">
+                    <i class="icon-tasks"></i>
+                    <span>线下环境</span>
+                    <i class="icon-chevron-up"></i>
+                </div>
+                <ul class="d-firstDrop s-firstDrop">
+                    <li>
+                        <div class="d-secondNav s-secondNav">
+                            <i class="icon-circle"></i>
+                            <span>线下测试环境5网段</span>
+                            <i class="icon-chevron-up"></i>
+                        </div>
+                        <ul class="d-secondDrop s-secondDrop">
+                            <li class="s-thirdItem">
+                                <a href="http://127.0.0.1:8001/test_138" target="_blank">192.168.5.138</a>
+                            </li>
+                            <li class="s-thirdItem">
+                                <a href="http://127.0.0.1:8001/test_148" target="_blank">192.168.5.148</a>
+                            </li>
+                            <li class="s-thirdItem">
+                                <a href="http://127.0.0.1:8001/test_158" target="_blank">192.168.5.158</a>
+                            </li>
+                            <li class="s-thirdItem">
+                                <a href="http://127.0.0.1:8001/test_168" target="_blank">192.168.5.168</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="d-secondNav s-secondNav">
+                            <i class="icon-circle"></i>
+                            <span>线下测试环境1网段</span>
+                            <i class="icon-chevron-up"></i>
+                        </div>
+                        <ul class="d-secondDrop s-secondDrop">
+                            <li class="s-thirdItem">
+                                <a href="http://127.0.0.1:8001/test__148" target="_blank">192.168.1.148</a>
+                            </li>
+                            <li class="s-thirdItem">
+                                <a href="http://127.0.0.1:8001/test__158" target="_blank">192.168.1.158</a>
+                            </li>
+                            <li class="s-thirdItem">
+                                <a href="http://127.0.0.1:8001/test__168" target="_blank">192.168.1.168</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="s-secondItem">
+                        <a href="">
+                            <i class="icon-circle"></i>
+                            <span>待定</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="d-firstNav s-firstNav">
+                    <i class="icon-bar-chart"></i>
+                    <span>线上环境</span>
+                    <i class="icon-chevron-up"></i>
+                </div>
+                <ul class="d-firstDrop s-firstDrop">
+                    <li class="s-secondItem">
+                        <i class="icon-circle"></i>
+                        <a href="" target="_blank">美年线上环境</a>
+                    </li>
+                    <li class="s-secondItem">
+                        <i class="icon-circle"></i>
+                        <a href="" target="_blank">纳龙线上环境</a>
+                    </li>
+                    <li class="s-secondItem">
+                        <i class="icon-circle"></i>
+                        <a href="" target="_blank">银川线上环境</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+    $(function() {
+        $('.d-firstNav').click(function() {
+            dropSwift($(this), '.d-firstDrop');
+        });
+        $('.d-secondNav').click(function() {
+            dropSwift($(this), '.d-secondDrop');
+        });
+        /**
+         * @param dom   點擊的當前元素
+         * @param drop  處理的下拉菜單
+         */
+        function dropSwift(dom, drop) {
+            dom.next().slideToggle();
+            dom.parent().siblings().find('.icon-chevron-up').removeClass('iconRotate');
+            dom.parent().siblings().find(drop).slideUp();
+            var iconChevron = dom.find('.icon-chevron-up');
+            if (iconChevron.hasClass('iconRotate')) {
+                iconChevron.removeClass('iconRotate');
+            } else {
+                iconChevron.addClass('iconRotate');
+            }
+        }
+    })
+    </script>
+</body>
+</html>

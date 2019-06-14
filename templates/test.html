@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单项发布检查</title>
+</head>
+<body>
+    <h1>欢迎来到发布检查中心</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>url</th>
+        <th>service_name</th>
+        <th>version</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for info_1 in list %}
+    <tr>
+        <td>{{info_1.url}}</td>
+        <td>{{info_1.service_name}}</td>
+        <td>{{info_1.version}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</table>
+</body>
+</html>
