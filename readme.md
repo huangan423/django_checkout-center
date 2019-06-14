@@ -3,4 +3,12 @@
 ```
 
 
-```效果展示
+```效果展示图1
+!https://github.com/herrywen-nanj/django_checkout-center/blob/master/A.png
+```
+
+
+```效果展示图2
+   点击对应的ip，出现单项检查表格
+!https://github.com/herrywen-nanj/django_checkout-center/blob/master/B.png
+```
